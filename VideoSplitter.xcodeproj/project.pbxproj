@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2ACC30E51BFAEA5800A21740 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC30E41BFAEA5800A21740 /* AppDelegate.m */; };
+		2ACC30E71BFAEA5800A21740 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC30E61BFAEA5800A21740 /* main.m */; };
+		2ACC30E91BFAEA5800A21740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC30E81BFAEA5800A21740 /* Images.xcassets */; };
+		2ACC30EC1BFAEA5800A21740 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC30EA1BFAEA5800A21740 /* MainMenu.xib */; };
+		2ACC30F81BFAEA5800A21740 /* VideoSplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC30F71BFAEA5800A21740 /* VideoSplitterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2ACC30F21BFAEA5800A21740 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ACC30D61BFAEA5800A21740 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2ACC30DD1BFAEA5800A21740;
+			remoteInfo = VideoSplitter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2ACC30DE1BFAEA5800A21740 /* VideoSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACC30E21BFAEA5800A21740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ACC30E31BFAEA5800A21740 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2ACC30E41BFAEA5800A21740 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2ACC30E61BFAEA5800A21740 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2ACC30E81BFAEA5800A21740 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2ACC30EB1BFAEA5800A21740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2ACC30F11BFAEA5800A21740 /* VideoSplitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoSplitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACC30F61BFAEA5800A21740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ACC30F71BFAEA5800A21740 /* VideoSplitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoSplitterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2ACC30DB1BFAEA5800A21740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ACC30EE1BFAEA5800A21740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2ACC30D51BFAEA5800A21740 = {
+			isa = PBXGroup;
+			children = (
+				2ACC30E01BFAEA5800A21740 /* VideoSplitter */,
+				2ACC30F41BFAEA5800A21740 /* VideoSplitterTests */,
+				2ACC30DF1BFAEA5800A21740 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2ACC30DF1BFAEA5800A21740 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC30DE1BFAEA5800A21740 /* VideoSplitter.app */,
+				2ACC30F11BFAEA5800A21740 /* VideoSplitterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2ACC30E01BFAEA5800A21740 /* VideoSplitter */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC30E31BFAEA5800A21740 /* AppDelegate.h */,
+				2ACC30E41BFAEA5800A21740 /* AppDelegate.m */,
+				2ACC30E81BFAEA5800A21740 /* Images.xcassets */,
+				2ACC30EA1BFAEA5800A21740 /* MainMenu.xib */,
+				2ACC30E11BFAEA5800A21740 /* Supporting Files */,
+			);
+			path = VideoSplitter;
+			sourceTree = "<group>";
+		};
+		2ACC30E11BFAEA5800A21740 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC30E21BFAEA5800A21740 /* Info.plist */,
+				2ACC30E61BFAEA5800A21740 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2ACC30F41BFAEA5800A21740 /* VideoSplitterTests */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC30F71BFAEA5800A21740 /* VideoSplitterTests.m */,
+				2ACC30F51BFAEA5800A21740 /* Supporting Files */,
+			);
+			path = VideoSplitterTests;
+			sourceTree = "<group>";
+		};
+		2ACC30F51BFAEA5800A21740 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC30F61BFAEA5800A21740 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2ACC30DD1BFAEA5800A21740 /* VideoSplitter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ACC30FB1BFAEA5800A21740 /* Build configuration list for PBXNativeTarget "VideoSplitter" */;
+			buildPhases = (
+				2ACC30DA1BFAEA5800A21740 /* Sources */,
+				2ACC30DB1BFAEA5800A21740 /* Frameworks */,
+				2ACC30DC1BFAEA5800A21740 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideoSplitter;
+			productName = VideoSplitter;
+			productReference = 2ACC30DE1BFAEA5800A21740 /* VideoSplitter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2ACC30F01BFAEA5800A21740 /* VideoSplitterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ACC30FE1BFAEA5800A21740 /* Build configuration list for PBXNativeTarget "VideoSplitterTests" */;
+			buildPhases = (
+				2ACC30ED1BFAEA5800A21740 /* Sources */,
+				2ACC30EE1BFAEA5800A21740 /* Frameworks */,
+				2ACC30EF1BFAEA5800A21740 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2ACC30F31BFAEA5800A21740 /* PBXTargetDependency */,
+			);
+			name = VideoSplitterTests;
+			productName = VideoSplitterTests;
+			productReference = 2ACC30F11BFAEA5800A21740 /* VideoSplitterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2ACC30D61BFAEA5800A21740 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Happy Camper Collective";
+				TargetAttributes = {
+					2ACC30DD1BFAEA5800A21740 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					2ACC30F01BFAEA5800A21740 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 2ACC30DD1BFAEA5800A21740;
+					};
+				};
+			};
+			buildConfigurationList = 2ACC30D91BFAEA5800A21740 /* Build configuration list for PBXProject "VideoSplitter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2ACC30D51BFAEA5800A21740;
+			productRefGroup = 2ACC30DF1BFAEA5800A21740 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2ACC30DD1BFAEA5800A21740 /* VideoSplitter */,
+				2ACC30F01BFAEA5800A21740 /* VideoSplitterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2ACC30DC1BFAEA5800A21740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ACC30E91BFAEA5800A21740 /* Images.xcassets in Resources */,
+				2ACC30EC1BFAEA5800A21740 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ACC30EF1BFAEA5800A21740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2ACC30DA1BFAEA5800A21740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ACC30E71BFAEA5800A21740 /* main.m in Sources */,
+				2ACC30E51BFAEA5800A21740 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ACC30ED1BFAEA5800A21740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ACC30F81BFAEA5800A21740 /* VideoSplitterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2ACC30F31BFAEA5800A21740 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2ACC30DD1BFAEA5800A21740 /* VideoSplitter */;
+			targetProxy = 2ACC30F21BFAEA5800A21740 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2ACC30EA1BFAEA5800A21740 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2ACC30EB1BFAEA5800A21740 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2ACC30F91BFAEA5800A21740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2ACC30FA1BFAEA5800A21740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2ACC30FC1BFAEA5800A21740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VideoSplitter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2ACC30FD1BFAEA5800A21740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VideoSplitter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2ACC30FF1BFAEA5800A21740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VideoSplitterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoSplitter.app/Contents/MacOS/VideoSplitter";
+			};
+			name = Debug;
+		};
+		2ACC31001BFAEA5800A21740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VideoSplitterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoSplitter.app/Contents/MacOS/VideoSplitter";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2ACC30D91BFAEA5800A21740 /* Build configuration list for PBXProject "VideoSplitter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ACC30F91BFAEA5800A21740 /* Debug */,
+				2ACC30FA1BFAEA5800A21740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ACC30FB1BFAEA5800A21740 /* Build configuration list for PBXNativeTarget "VideoSplitter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ACC30FC1BFAEA5800A21740 /* Debug */,
+				2ACC30FD1BFAEA5800A21740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2ACC30FE1BFAEA5800A21740 /* Build configuration list for PBXNativeTarget "VideoSplitterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ACC30FF1BFAEA5800A21740 /* Debug */,
+				2ACC31001BFAEA5800A21740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2ACC30D61BFAEA5800A21740 /* Project object */;
+}
