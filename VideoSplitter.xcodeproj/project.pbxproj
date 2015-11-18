@@ -12,6 +12,7 @@
 		2ACC30E91BFAEA5800A21740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC30E81BFAEA5800A21740 /* Images.xcassets */; };
 		2ACC30EC1BFAEA5800A21740 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC30EA1BFAEA5800A21740 /* MainMenu.xib */; };
 		2ACC30F81BFAEA5800A21740 /* VideoSplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC30F71BFAEA5800A21740 /* VideoSplitterTests.m */; };
+		2ACC31021BFB5A1C00A21740 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACC31011BFB5A1C00A21740 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		2ACC30F11BFAEA5800A21740 /* VideoSplitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoSplitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC30F61BFAEA5800A21740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ACC30F71BFAEA5800A21740 /* VideoSplitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoSplitterTests.m; sourceTree = "<group>"; };
+		2ACC31011BFB5A1C00A21740 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ACC31021BFB5A1C00A21740 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +64,7 @@
 				2ACC30E01BFAEA5800A21740 /* VideoSplitter */,
 				2ACC30F41BFAEA5800A21740 /* VideoSplitterTests */,
 				2ACC30DF1BFAEA5800A21740 /* Products */,
+				2ACC31011BFB5A1C00A21740 /* AVFoundation.framework */,
 			);
 			sourceTree = "<group>";
 		};
