@@ -7,6 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "VideoWindowController.h"
+
+@import AVKit;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
@@ -18,12 +21,20 @@
 @property (strong) IBOutlet NSComboBox *roundDurationComboBox;
 @property (strong) IBOutlet NSComboBox *restDurationComboBox;
 @property (strong) IBOutlet NSTextField *startTimeTextField;
+//@property (strong, nonatomic) AVPlayerItem* playerItem;
+@property (strong, nonatomic) AVPlayerView* playerView;
+@property (strong, nonatomic) VideoWindowController *controllerWindow;
 
 - (IBAction)roundDurationChanged:(id)sender;
 - (IBAction)restDurationChanged:(id)sender;
 - (IBAction)chooseInputFileClicked:(id)sender;
 - (IBAction)chooseOutputFileClicked:(id)sender;
 - (IBAction)goClicked:(id)sender;
+- (IBAction)viewVideoClicked:(id)sender;
+- (IBAction)roundStartPressed:(id)sender;
+- (IBAction)cancelPressed:(id)sender;
+- (IBAction)play:(id)sender;
+
 
 @end
 

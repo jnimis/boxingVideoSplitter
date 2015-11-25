@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#include <AVFoundation/AVPlayer.h>
+#include <AVFoundation/AVPlayerItem.h>
 
 @interface AppDelegate ()
 
@@ -128,5 +130,40 @@
         }
     }
 }
+
+- (IBAction)viewVideoClicked:(id)sender {
+  
+  if (self.inputPathString != nil) {
+//    NSString* inputPath = [self.inputPathString substringFromIndex:7];
+    
+    NSURL* url = [NSURL URLWithString:self.inputPathString];
+//    self.playerItem = [AVPlayerItem playerItemWithURL:url];
+    
+    self.controllerWindow = [[VideoWindowController alloc] initWithWindowNibName:@"VideoWindowController" owner:self];
+//    self.controllerWindow.player =
+    self.controllerWindow.playerView.player = [[AVPlayer alloc] initWithURL:url];
+  
+    [self.controllerWindow showWindow:self];
+//    [self.playerItem addObserver:self.controllerWindow forKeyPath:@"status" options:0 context:nil];
+//       I have no idea if the line above is right
+    [self.controllerWindow.playerView.player play];
+  }
+}
+
+- (IBAction)play:sender {
+
+  [self.controllerWindow.playerView.player play];
+  
+}
+
+- (IBAction)roundStartPressed:(id)sender {
+  
+}
+
+- (IBAction)cancelPressed:(id)sender {
+  
+  [self.controllerWindow close];
+}
+
 
 @end

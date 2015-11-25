@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A2B61F41BFCD0A40044A39F /* VideoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2B61F21BFCD0A40044A39F /* VideoWindowController.m */; };
+		2A2B61F51BFCD0A40044A39F /* VideoWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2B61F31BFCD0A40044A39F /* VideoWindowController.xib */; };
 		2ACC30E51BFAEA5800A21740 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC30E41BFAEA5800A21740 /* AppDelegate.m */; };
 		2ACC30E71BFAEA5800A21740 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC30E61BFAEA5800A21740 /* main.m */; };
 		2ACC30E91BFAEA5800A21740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC30E81BFAEA5800A21740 /* Images.xcassets */; };
@@ -26,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A2B61F11BFCD0A40044A39F /* VideoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoWindowController.h; sourceTree = "<group>"; };
+		2A2B61F21BFCD0A40044A39F /* VideoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoWindowController.m; sourceTree = "<group>"; };
+		2A2B61F31BFCD0A40044A39F /* VideoWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoWindowController.xib; sourceTree = "<group>"; };
 		2ACC30DE1BFAEA5800A21740 /* VideoSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC30E21BFAEA5800A21740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ACC30E31BFAEA5800A21740 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +90,9 @@
 				2ACC30E81BFAEA5800A21740 /* Images.xcassets */,
 				2ACC30EA1BFAEA5800A21740 /* MainMenu.xib */,
 				2ACC30E11BFAEA5800A21740 /* Supporting Files */,
+				2A2B61F11BFCD0A40044A39F /* VideoWindowController.h */,
+				2A2B61F21BFCD0A40044A39F /* VideoWindowController.m */,
+				2A2B61F31BFCD0A40044A39F /* VideoWindowController.xib */,
 			);
 			path = VideoSplitter;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 			files = (
 				2ACC30E91BFAEA5800A21740 /* Images.xcassets in Resources */,
 				2ACC30EC1BFAEA5800A21740 /* MainMenu.xib in Resources */,
+				2A2B61F51BFCD0A40044A39F /* VideoWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A2B61F41BFCD0A40044A39F /* VideoWindowController.m in Sources */,
 				2ACC30E71BFAEA5800A21740 /* main.m in Sources */,
 				2ACC30E51BFAEA5800A21740 /* AppDelegate.m in Sources */,
 			);
@@ -402,6 +412,7 @@
 				2ACC30FD1BFAEA5800A21740 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2ACC30FE1BFAEA5800A21740 /* Build configuration list for PBXNativeTarget "VideoSplitterTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +421,7 @@
 				2ACC31001BFAEA5800A21740 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
