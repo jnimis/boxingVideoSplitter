@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="6254"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
@@ -14,8 +15,11 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="filenameTextField" destination="0Ad-bS-7Gq" id="vPb-Ha-SKn"/>
+                <outlet property="playerView" destination="cea-es-Wet" id="g5H-8K-WMn"/>
                 <outlet property="restDurationComboBox" destination="Ur4-3W-ETO" id="PJd-cP-bEO"/>
                 <outlet property="roundDurationComboBox" destination="9jM-H8-mWc" id="QN2-SE-boZ"/>
+                <outlet property="roundStartMarkButton" destination="bk6-Ad-E3D" id="SDM-yR-ves"/>
                 <outlet property="startTimeTextField" destination="k5o-GN-tSm" id="uXi-Be-WrJ"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -680,7 +684,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V7f-vk-sK3">
-                        <rect key="frame" x="120" y="462" width="252" height="17"/>
+                        <rect key="frame" x="120" y="314" width="252" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="First Round Begins at (time in seconds):" id="a0Y-Cg-yEa">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -688,7 +692,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGt-59-M1X" userLabel="InputPathLabel">
-                        <rect key="frame" x="267" y="541" width="446" height="17"/>
+                        <rect key="frame" x="225" y="594" width="446" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="File Path" id="00F-rL-Ykb">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -699,7 +703,7 @@
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yes-3P-efM">
-                        <rect key="frame" x="264" y="411" width="108" height="17"/>
+                        <rect key="frame" x="264" y="263" width="108" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Round Duration:" id="fxW-Fj-rJo">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -707,7 +711,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bnf-TG-gen">
-                        <rect key="frame" x="278" y="362" width="94" height="17"/>
+                        <rect key="frame" x="278" y="214" width="94" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Rest Duration:" id="nwZ-LI-iMF">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -715,16 +719,19 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5o-GN-tSm">
-                        <rect key="frame" x="400" y="459" width="96" height="22"/>
+                        <rect key="frame" x="400" y="311" width="96" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Raz-lN-JaQ">
                             <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="ajk-w4-HuZ"/>
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="roundBeginEdited:" target="Voe-Tx-rLC" id="fsj-mU-xA5"/>
+                            </connections>
                         </textFieldCell>
                     </textField>
                     <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9jM-H8-mWc">
-                        <rect key="frame" x="400" y="405" width="99" height="26"/>
+                        <rect key="frame" x="400" y="257" width="99" height="26"/>
                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="3 minutes" drawsBackground="YES" completes="NO" numberOfVisibleItems="3" id="6UO-NJ-Irc">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -740,7 +747,7 @@
                         </connections>
                     </comboBox>
                     <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ur4-3W-ETO">
-                        <rect key="frame" x="400" y="352" width="99" height="26"/>
+                        <rect key="frame" x="400" y="204" width="99" height="26"/>
                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="1 min" drawsBackground="YES" completes="NO" numberOfVisibleItems="2" id="oDh-4U-wJC">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -755,7 +762,7 @@
                         </connections>
                     </comboBox>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-1Y-WDS">
-                        <rect key="frame" x="336" y="179" width="58" height="32"/>
+                        <rect key="frame" x="336" y="31" width="58" height="32"/>
                         <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wuz-IG-sfd">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -765,7 +772,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hk6-LD-uIW">
-                        <rect key="frame" x="93" y="264" width="132" height="32"/>
+                        <rect key="frame" x="51" y="157" width="132" height="32"/>
                         <buttonCell key="cell" type="push" title="Output Folder:" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cG9-3D-gBq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -775,7 +782,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCb-PT-8Lg" userLabel="OutputPathlabel">
-                        <rect key="frame" x="267" y="275" width="446" height="17"/>
+                        <rect key="frame" x="225" y="168" width="446" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="2be-38-2p1">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -786,7 +793,7 @@
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="guL-hM-wwm" userLabel="InputFileButton">
-                        <rect key="frame" x="93" y="530" width="156" height="32"/>
+                        <rect key="frame" x="51" y="583" width="156" height="32"/>
                         <buttonCell key="cell" type="push" title="Choose Video File:" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Y5o-Wo-wXz">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -795,6 +802,51 @@
                             <action selector="chooseInputFileClicked:" target="Voe-Tx-rLC" id="GY8-L2-5JX"/>
                         </connections>
                     </button>
+                    <avPlayerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cea-es-Wet">
+                        <rect key="frame" x="167" y="362" width="397" height="204"/>
+                    </avPlayerView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bk6-Ad-E3D">
+                        <rect key="frame" x="51" y="355" width="114" height="32"/>
+                        <buttonCell key="cell" type="push" title="Round Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vd2-as-yfy">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="roundStartClicked:" target="Voe-Tx-rLC" id="H6J-MM-3Ju"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5G-aU-2oK">
+                        <rect key="frame" x="80" y="122" width="99" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filename Basis:" id="UdY-5K-LFE">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ad-bS-7Gq">
+                        <rect key="frame" x="227" y="117" width="297" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Oyc-BR-FYp">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KKR-zr-hO5">
+                        <rect key="frame" x="82" y="81" width="243" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Will add round numbers starting with:" id="Z0Z-t1-W4G">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEN-MG-eKI">
+                        <rect key="frame" x="331" y="78" width="96" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1" drawsBackground="YES" id="Res-vI-mwn">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="374.5" y="400"/>

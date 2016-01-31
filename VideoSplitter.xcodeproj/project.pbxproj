@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1F48571C04280B00DBDDE3 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1F48561C04280B00DBDDE3 /* AVKit.framework */; };
+		2A7B91801C30A23C0022BA6B /* FileProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B917E1C30A23C0022BA6B /* FileProgressView.m */; };
+		2A7B91811C30A23C0022BA6B /* FileProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B917F1C30A23C0022BA6B /* FileProgressView.xib */; };
 		2ACC30E51BFAEA5800A21740 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC30E41BFAEA5800A21740 /* AppDelegate.m */; };
 		2ACC30E71BFAEA5800A21740 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC30E61BFAEA5800A21740 /* main.m */; };
 		2ACC30E91BFAEA5800A21740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC30E81BFAEA5800A21740 /* Images.xcassets */; };
@@ -26,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A1F48561C04280B00DBDDE3 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		2A7B917D1C30A23C0022BA6B /* FileProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileProgressView.h; sourceTree = "<group>"; };
+		2A7B917E1C30A23C0022BA6B /* FileProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileProgressView.m; sourceTree = "<group>"; };
+		2A7B917F1C30A23C0022BA6B /* FileProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileProgressView.xib; sourceTree = "<group>"; };
 		2ACC30DE1BFAEA5800A21740 /* VideoSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC30E21BFAEA5800A21740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ACC30E31BFAEA5800A21740 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1F48571C04280B00DBDDE3 /* AVKit.framework in Frameworks */,
 				2ACC31021BFB5A1C00A21740 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +69,7 @@
 		2ACC30D51BFAEA5800A21740 = {
 			isa = PBXGroup;
 			children = (
+				2A1F48561C04280B00DBDDE3 /* AVKit.framework */,
 				2ACC30E01BFAEA5800A21740 /* VideoSplitter */,
 				2ACC30F41BFAEA5800A21740 /* VideoSplitterTests */,
 				2ACC30DF1BFAEA5800A21740 /* Products */,
@@ -85,6 +94,9 @@
 				2ACC30E81BFAEA5800A21740 /* Images.xcassets */,
 				2ACC30EA1BFAEA5800A21740 /* MainMenu.xib */,
 				2ACC30E11BFAEA5800A21740 /* Supporting Files */,
+				2A7B917D1C30A23C0022BA6B /* FileProgressView.h */,
+				2A7B917E1C30A23C0022BA6B /* FileProgressView.m */,
+				2A7B917F1C30A23C0022BA6B /* FileProgressView.xib */,
 			);
 			path = VideoSplitter;
 			sourceTree = "<group>";
@@ -197,6 +209,7 @@
 			files = (
 				2ACC30E91BFAEA5800A21740 /* Images.xcassets in Resources */,
 				2ACC30EC1BFAEA5800A21740 /* MainMenu.xib in Resources */,
+				2A7B91811C30A23C0022BA6B /* FileProgressView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +229,7 @@
 			files = (
 				2ACC30E71BFAEA5800A21740 /* main.m in Sources */,
 				2ACC30E51BFAEA5800A21740 /* AppDelegate.m in Sources */,
+				2A7B91801C30A23C0022BA6B /* FileProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +416,7 @@
 				2ACC30FD1BFAEA5800A21740 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2ACC30FE1BFAEA5800A21740 /* Build configuration list for PBXNativeTarget "VideoSplitterTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +425,7 @@
 				2ACC31001BFAEA5800A21740 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
