@@ -18,7 +18,10 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+
+    self.inputPathString = nil;
+    self.outputPathString = nil;
+    [self.goButton setEnabled:NO];
     self.roundLength = 180;
     self.restLength = 60;
     self.preciseOffset = CMTimeMakeWithSeconds(-1, 1);
@@ -26,14 +29,24 @@
     [formatter setDateFormat:@"M-d-yy"];
     NSString* dateString = [formatter stringFromDate:[NSDate date]];
     [self.filenameTextField setStringValue:[NSString stringWithFormat:@"%@-Boxing", dateString]];
-    // should look for ffmpeg and find it
-//    NSTask* task = [[NSTask alloc] init];
-//    [task setLaunchPath:@"/usr/bin/which ffmpeg"];
     
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+
+}
+
+- (void)checkForSufficientControlValues {
+    
+    if ((self.inputPathString != nil) &&
+        (self.outputPathString != nil)
+//        (! (CMTimeGetSeconds(self.preciseOffset) == -1.0f) ||     this won't allow zero value for start time
+//         ([self.startTimeTextField integerValue] > 0 ) && self.startTimeTextField.text )
+        ) {
+            [self.goButton setEnabled:YES];
+        } else {
+            [self.goButton setEnabled:NO];
+        }
 }
 
 - (IBAction)roundDurationChanged:(id)sender {
@@ -67,6 +80,12 @@
     
 }
 
+- (void)outputVideoSettings {
+
+    self.exportPreset = AVAssetExportPreset640x480;
+
+}
+
 - (IBAction)chooseInputFileClicked:(id)sender {
     self.inputPathString = [self getPathStringFromDialogue:true];
     
@@ -74,10 +93,14 @@
     AVPlayerItem* playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.inputPathString]];
     self.playerView.player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
     
+    [self checkForSufficientControlValues];
+    
 }
 
 - (IBAction)chooseOutputFileClicked:(id)sender {
     self.outputPathString = [self getPathStringFromDialogue:false];
+    
+    [self checkForSufficientControlValues];
 }
 
 - (NSString*)getPathStringFromDialogue:(bool)willSelectFile {
@@ -102,13 +125,14 @@
 }
 
 - (IBAction)goClicked:(id)sender {
-    bool shouldContinue = true;
+//    bool shouldContinue = true;   variable left from pre-recursive days
     bool useIntValue = false;
     int startTime = 0;
     int roundCount = 1;
     
     CMTime preciseStartTime;
     
+    // choose whether to use textfield value or value set in video window
     if (CMTimeCompare( self.preciseOffset , CMTimeMakeWithSeconds(-1, 1))) {
         startTime = (int)([self.startTimeTextField integerValue] - 1);
         if (startTime < 0) {
@@ -120,7 +144,7 @@
     
     if (!(self.outputPathString == nil || self.inputPathString == nil)) {
     
-        // make window here
+        // make progress bar window here
         self.progressViewController = [[FileProgressView alloc] initWithWindowNibName:@"FileProgressView"];
         self.progressViewController.progressWindowDelegate = self;
         [self.progressViewController showWindow:nil];
@@ -135,18 +159,18 @@
     
     // set up file paths
     NSString* thisFileName = [NSString stringWithFormat:@"%@%d.mp4", self.filenameTextField, roundCount];
-    NSURL* thisFileToWrite = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.outputPathString, thisFileName]];
+    NSString* thisFilePath = [NSString stringWithFormat:@"%@%@", self.outputPathString, thisFileName];
     
-    // probably need NSFileManager somewhere?
-    // the following based on http://stackoverflow.com/questions/13097331/unable-to-trim-a-video-using-avassetexportsession
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *outputURL = paths[0];
     NSFileManager *manager = [NSFileManager defaultManager];
-    //        [manager createDirectoryAtPath:outputURL withIntermediateDirectories:YES attributes:nil error:nil];
-    //        outputURL = [outputURL stringByAppendingPathComponent:thisFileName];
-    //        [manager removeItemAtPath:outputURL error:nil];
     
-    NSLog(@"start time is %f and URL is %@", CMTimeGetSeconds(startTime), thisFileToWrite);
+    if ([manager fileExistsAtPath:thisFilePath]) {
+        // present dialog asking to replace or rename
+    }
+    
+    NSURL* thisFileToWrite = [NSURL URLWithString:thisFilePath];
+    // originally found help at http://stackoverflow.com/questions/13097331/unable-to-trim-a-video-using-avassetexportsession
+//    NSLog(@"start time is %f and URL is %@", CMTimeGetSeconds(startTime), thisFileToWrite);
+    
     // initialize time variables
     CMTime duration = CMTimeMakeWithSeconds(self.roundLength + 2, 1);
     CMTimeRange range = CMTimeRangeMake(startTime, duration);
@@ -155,18 +179,16 @@
     AVAsset* assetToRead = self.playerView.player.currentItem.asset;
     self.readAsset = assetToRead;
     NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:self.readAsset];
-    if ([compatiblePresets containsObject:AVAssetExportPreset640x480]) {
+    if ([compatiblePresets containsObject:AVAssetExportPreset640x480]) {  // eventually choose output size
         
         AVAssetExportSession* exportSession = [[AVAssetExportSession alloc]
                                                initWithAsset:self.readAsset presetName:AVAssetExportPreset640x480];
         exportSession.outputURL = thisFileToWrite;
-        exportSession.outputFileType = AVFileTypeMPEG4;
+        exportSession.outputFileType = AVFileTypeMPEG4;     // eventually choose output format (?)
         exportSession.timeRange = range;
         self.currentExportSession = exportSession;
         self.currentFile = thisFileName;
         
-//        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-        
         [exportSession exportAsynchronouslyWithCompletionHandler:^{
             switch ([exportSession status]) {
                 case AVAssetExportSessionStatusFailed:
@@ -177,67 +199,24 @@
                     break;
                 default:
                     NSLog(@"Export session didn't fail or cancel");
+                    
+                    // go on to next round
+                    CMTime newStartTime = CMTimeMake(CMTimeGetSeconds(startTime) + self.roundLength + self.restLength, 1);
+                    
+                    // only if end of file won't be reached  TODO: allow concat of multiple video files
+                    if ((CMTimeGetSeconds(newStartTime) + self.roundLength) <
+                        CMTimeGetSeconds(self.playerView.player.currentItem.asset.duration)) {
+                        
+                        [self recursiveStartExport:newStartTime roundNum:(roundCount + 1)];
+                        
+                    }
                     break;
             }
-            
-            CMTime newStartTime = CMTimeMake(CMTimeGetSeconds(startTime) + self.roundLength + self.restLength, 1);
 
-            if ((CMTimeGetSeconds(newStartTime) + self.roundLength) <
-                CMTimeGetSeconds(self.playerView.player.currentItem.asset.duration)) {
-                
-                [self recursiveStartExport:newStartTime roundNum:(roundCount + 1)];
-                
-            }
-
-//            dispatch_semaphore_signal(sema);
-            
         }];
         
-//        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
-    }
-    
-}
-
-- (void)writeAssetFrom:(CMTime)startTime atFile:(NSURL*)fileURL {
-    
-    NSLog(@"start time is %f and URL is %@", CMTimeGetSeconds(startTime), fileURL);
-    // initialize time variables
-    CMTime duration = CMTimeMakeWithSeconds(self.roundLength + 2, 1);
-    CMTimeRange range = CMTimeRangeMake(startTime, duration);
-    
-    // create "round" asset
-    AVAsset* assetToRead = self.playerView.player.currentItem.asset;
-    self.readAsset = assetToRead;
-    NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:self.readAsset];
-    if ([compatiblePresets containsObject:AVAssetExportPreset640x480]) {
-        
-        AVAssetExportSession* exportSession = [[AVAssetExportSession alloc]
-                                               initWithAsset:self.readAsset presetName:AVAssetExportPreset640x480];
-        exportSession.outputURL = fileURL;
-        exportSession.outputFileType = AVFileTypeMPEG4;
-        exportSession.timeRange = range;
-        self.currentExportSession = exportSession;
-        
-        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-        
-        [exportSession exportAsynchronouslyWithCompletionHandler:^{
-            switch ([exportSession status]) {
-                case AVAssetExportSessionStatusFailed:
-                    NSLog(@"Export failed: %@", [[exportSession error] localizedDescription]);
-                    break;
-                case AVAssetExportSessionStatusCancelled:
-                    NSLog(@"Export cancelled");
-                    break;
-                default:
-                    NSLog(@"Export session didn't fail or cancel");
-                    break;
-            }
-            
-            dispatch_semaphore_signal(sema);
-            
-        }];
-        
-        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    } else {
+        // present filetype error
     }
     
 }
@@ -249,11 +228,13 @@
     int timeInSeconds = CMTimeGetSeconds(self.preciseOffset);
     [self.startTimeTextField setStringValue:[NSString stringWithFormat:@"%d",timeInSeconds]];
     [self.playerView.player pause];
+    [self checkForSufficientControlValues];
     
 }
 
 - (IBAction)roundBeginEdited:(id)sender {
     self.preciseOffset = CMTimeMakeWithSeconds(-1, 1);
+    [self checkForSufficientControlValues];
 }
 
 - (IBAction)showWindow:(id)sender {
@@ -262,6 +243,11 @@
     self.progressViewController.progressWindowDelegate = self;
     [self.progressViewController showWindow:nil];
 
+}
+
+- (IBAction)outputSettingsClicked:(id)sender {
+    // eventually, display an array of choices for settings
+    
 }
 
 -(void)updateExportDisplay {

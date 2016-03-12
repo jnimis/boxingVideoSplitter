@@ -16,6 +16,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="filenameTextField" destination="0Ad-bS-7Gq" id="vPb-Ha-SKn"/>
+                <outlet property="goButton" destination="5mL-1Y-WDS" id="itO-Gc-mJL"/>
                 <outlet property="playerView" destination="cea-es-Wet" id="g5H-8K-WMn"/>
                 <outlet property="restDurationComboBox" destination="Ur4-3W-ETO" id="PJd-cP-bEO"/>
                 <outlet property="roundDurationComboBox" destination="9jM-H8-mWc" id="QN2-SE-boZ"/>
@@ -720,7 +721,7 @@
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5o-GN-tSm">
                         <rect key="frame" x="400" y="311" width="96" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Raz-lN-JaQ">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0" drawsBackground="YES" id="Raz-lN-JaQ">
                             <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="ajk-w4-HuZ"/>
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -847,6 +848,16 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-cz-bek">
+                        <rect key="frame" x="51" y="203" width="139" height="32"/>
+                        <buttonCell key="cell" type="push" title="Output Settings" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DFi-JN-UsU">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="outputSettingsClicked:" target="Voe-Tx-rLC" id="BKt-5o-Bdi"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="374.5" y="400"/>

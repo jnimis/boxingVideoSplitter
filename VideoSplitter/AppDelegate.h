@@ -53,6 +53,8 @@
 @property double progress;
 @property (strong, nonatomic) NSString* currentFile;
 @property (strong, nonatomic) AVAssetExportSession* currentExportSession;
+@property (strong) IBOutlet NSButton *goButton;
+@property (strong, nonatomic) NSString* exportPreset;
 
 - (IBAction)roundDurationChanged:(id)sender;
 - (IBAction)restDurationChanged:(id)sender;
@@ -62,6 +64,7 @@
 - (IBAction)roundStartClicked:(id)sender;
 - (IBAction)roundBeginEdited:(id)sender;
 - (IBAction)showWindow:(id)sender;
+- (IBAction)outputSettingsClicked:(id)sender;
 
 @end
 
